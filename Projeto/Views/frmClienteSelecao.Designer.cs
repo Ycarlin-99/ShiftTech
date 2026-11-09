@@ -78,7 +78,6 @@
             this.txtNome.Size = new System.Drawing.Size(623, 30);
             this.txtNome.TabIndex = 23;
             this.txtNome.Tag = "";
-            this.txtNome.Text = "Pesquisar Clientes";
             // 
             // lblCadastro
             // 

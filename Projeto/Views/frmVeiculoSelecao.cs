@@ -30,6 +30,8 @@ namespace ProjetoExemploCerto.Views
                 {
                     veiculos = veiculoController.GetByFilter(txtPesquisa.Text.Trim());
 
+                    }
+
                     dgvRegistros.DataSource = null;
                     dgvRegistros.DataSource = veiculos;
 
@@ -65,7 +67,7 @@ namespace ProjetoExemploCerto.Views
 
                     if (dgvRegistros.Columns["ClienteId"] != null)
                         dgvRegistros.Columns["ClienteId"].Visible = false;
-                }
+                
             }
             catch (Exception ex)
             {
@@ -74,7 +76,7 @@ namespace ProjetoExemploCerto.Views
         }
         private Veiculo GetVeiculoSelecionado()
         {
-            if (dgvRegistros.CurrentRow != null)
+            if (dgvRegistros.CurrentRow == null)
                 return null;
 
             return dgvRegistros.CurrentRow.DataBoundItem as Veiculo;
@@ -123,6 +125,10 @@ namespace ProjetoExemploCerto.Views
                     veiculoController.Excluir(veiculo.IdVeiculo);
                     MessageBox.Show("Veículo excluído com sucesso.");
                     AtualizarGrid();
+                }
+                catch (System.Data.SqlClient.SqlException ex) when (ex.Number == 547)
+                {
+                    MessageBox.Show("Não é possível excluir: este veículo possui ordens de serviço.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 catch (Exception ex)
                 {

@@ -19,6 +19,8 @@ namespace ProjetoExemploCerto.Views
             InitializeComponent();
 
             acao = Acao;
+            btnSalvar.Click += btnSalvar_Click;
+            btnCancelar.Click += btnCancelar_Click;
 
             CarregarClientes();
 

@@ -18,6 +18,12 @@ namespace ProjetoExemploCerto.Views
 
         private int acao;
         private int clienteId;
+
+        // A tela não tem esses campos; guardamos os valores
+        // originais para não apagá-los ao atualizar
+        private int cep;
+        private int qtVeiculos;
+
         public frmClienteCadastro(int Acao = 1, Cliente cliente = null)
         {
             InitializeComponent();
@@ -34,6 +40,8 @@ namespace ProjetoExemploCerto.Views
                 txtEmail.Text = cliente.Email;
                 txtCidade.Text = cliente.Cidade;
                 txtEndereco.Text = cliente.Endereco;
+                cep = cliente.CEP;
+                qtVeiculos = cliente.QtVeiculos;
             }
             if (acao == 2)
                 btnSalvar.Text = "Atualizar";
@@ -62,6 +70,8 @@ namespace ProjetoExemploCerto.Views
             cliente.Cidade = txtCidade.Text.Trim();
             cliente.Endereco = txtEndereco.Text.Trim();
             cliente.ClienteId = clienteId;
+            cliente.CEP = cep;
+            cliente.QtVeiculos = qtVeiculos;
 
             try
             {

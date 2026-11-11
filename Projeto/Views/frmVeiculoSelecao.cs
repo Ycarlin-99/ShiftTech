@@ -29,45 +29,43 @@ namespace ProjetoExemploCerto.Views
                 else
                 {
                     veiculos = veiculoController.GetByFilter(txtPesquisa.Text.Trim());
+                }
 
-                    }
+                // A grade é preenchida com ou sem pesquisa
+                dgvRegistros.DataSource = null;
+                dgvRegistros.DataSource = veiculos;
 
-                    dgvRegistros.DataSource = null;
-                    dgvRegistros.DataSource = veiculos;
+                lblRegistros.Text = "Registros encontrados: " + veiculos.Count;
 
-                    lblRegistros.Text = "Registros encontrados: " + veiculos.Count;
+                if (dgvRegistros.Columns["IdVeiculo"] != null)
+                    dgvRegistros.Columns["IdVeiculo"].HeaderText = "Codigo";
 
-                    if (dgvRegistros.Columns["IdVeiculo"] != null)
+                if (dgvRegistros.Columns["IdCliente"] != null)
+                    dgvRegistros.Columns["IdCliente"].HeaderText = "Codigo Cliente";
 
-                        dgvRegistros.Columns["IdVeiculo"].HeaderText = "Codigo";
+                if (dgvRegistros.Columns["Placa"] != null)
+                    dgvRegistros.Columns["Placa"].HeaderText = "Placa";
 
-                    if (dgvRegistros.Columns["IdCliente"] != null)
-                        dgvRegistros.Columns["IdCliente"].HeaderText = "Codigo Cliente";
+                if (dgvRegistros.Columns["Marca"] != null)
+                    dgvRegistros.Columns["Marca"].HeaderText = "Marca";
 
-                    if (dgvRegistros.Columns["Placa"] != null)
-                        dgvRegistros.Columns["Placa"].HeaderText = "Placa";
+                if (dgvRegistros.Columns["Modelo"] != null)
+                    dgvRegistros.Columns["Modelo"].HeaderText = "Modelo";
 
-                    if (dgvRegistros.Columns["Marca"] != null)
-                        dgvRegistros.Columns["Marca"].HeaderText = "Marca";
+                if (dgvRegistros.Columns["Ano"] != null)
+                    dgvRegistros.Columns["Ano"].HeaderText = "Ano";
 
-                    if (dgvRegistros.Columns["Modelo"] != null)
-                        dgvRegistros.Columns["Modelo"].HeaderText = "Modelo";
+                if (dgvRegistros.Columns["Motor"] != null)
+                    dgvRegistros.Columns["Motor"].HeaderText = "Motor";
 
-                    if (dgvRegistros.Columns["Ano"] != null)
-                        dgvRegistros.Columns["Ano"].HeaderText = "Ano";
+                if (dgvRegistros.Columns["Combustivel"] != null)
+                    dgvRegistros.Columns["Combustivel"].HeaderText = "Combustível";
 
-                    if (dgvRegistros.Columns["Motor"] != null)
-                        dgvRegistros.Columns["Motor"].HeaderText = "Motor";
+                if (dgvRegistros.Columns["ClienteNome"] != null)
+                    dgvRegistros.Columns["ClienteNome"].HeaderText = "Proprietário";
 
-                    if (dgvRegistros.Columns["Combustivel"] != null)
-                        dgvRegistros.Columns["Combustivel"].HeaderText = "Combustível";
-
-                    if (dgvRegistros.Columns["ClienteNome"] != null)
-                        dgvRegistros.Columns["ClienteNome"].HeaderText = "Proprietário";
-
-                    if (dgvRegistros.Columns["ClienteId"] != null)
-                        dgvRegistros.Columns["ClienteId"].Visible = false;
-                
+                if (dgvRegistros.Columns["ClienteId"] != null)
+                    dgvRegistros.Columns["ClienteId"].Visible = false;
             }
             catch (Exception ex)
             {

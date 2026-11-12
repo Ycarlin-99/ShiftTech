@@ -182,6 +182,7 @@
     <None Include="Images\icons8-customer-90.png" />
     <None Include="Images\icons8-clipboard-100.png" />
     <Content Include="ProjetoMVC_SCRIPT.sql" />
+    <Content Include="ShiftTech_Banco.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
